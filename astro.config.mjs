@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://casatile.example',
+  site: 'https://casa-tile.metei1997vasile.workers.dev',
   trailingSlash: 'ignore',
   i18n: {
     defaultLocale: 'ro',
