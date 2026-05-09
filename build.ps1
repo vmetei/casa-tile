@@ -1,5 +1,5 @@
 ﻿# build.ps1 - Generates Casa Tile static site from data/products.json + data/i18n.json
-# Outputs: SVG images, all HTML pages (RO + EN), sitemap.xml, robots.txt
+# Outputs: SVG images, all HTML pages (RO + RU), sitemap.xml, robots.txt
 param(
   [string]$SiteUrl = 'https://casatile.example'
 )
@@ -45,10 +45,10 @@ $colorNames = @{
     'anthracite'='Antracit'; 'black'='Negru'; 'brown'='Maro'; 'terracotta'='Teracotă';
     'blue'='Albastru'; 'green'='Verde';
   }
-  en = @{
-    'white'='White'; 'cream'='Cream'; 'beige'='Beige'; 'sand'='Sand'; 'grey'='Grey';
-    'anthracite'='Anthracite'; 'black'='Black'; 'brown'='Brown'; 'terracotta'='Terracotta';
-    'blue'='Blue'; 'green'='Green';
+  ru = @{
+    'white'='Белый'; 'cream'='Кремовый'; 'beige'='Бежевый'; 'sand'='Песочный'; 'grey'='Серый';
+    'anthracite'='Антрацит'; 'black'='Чёрный'; 'brown'='Коричневый'; 'terracotta'='Терракот';
+    'blue'='Синий'; 'green'='Зелёный';
   }
 }
 
@@ -303,20 +303,19 @@ function Get-Description($p, $locale) {
   $size = $p.size
 
   if ($locale -eq 'ro') {
-    $rooms = ($p.rooms | ForEach-Object { (($roomDefs | Where-Object { $_.id -eq $_2 }).name.ro) })
     $rooms = ($p.rooms | ForEach-Object { $rid = $_; ($roomDefs | Where-Object { $_.id -eq $rid }).name.ro.ToLower() }) -join ', '
     return "Plăcile $($p.name.ro) din colecția $coll oferă un design rafinat în nuanță $($color.ToLower()), finisaj $finish și format $size cm. Realizate din $material de calitate europeană, sunt potrivite pentru: $rooms. Combinație perfectă între eleganță și durabilitate, ideale pentru spații moderne sau clasice."
   } else {
-    $rooms = ($p.rooms | ForEach-Object { $rid = $_; ($roomDefs | Where-Object { $_.id -eq $rid }).name.en.ToLower() }) -join ', '
-    return "$($p.name.en) tiles from the $coll collection offer a refined design in $($color.ToLower()) tones, $finish finish and $size cm format. Made from European-grade $material, they are suitable for: $rooms. A perfect blend of elegance and durability, ideal for both modern and classic spaces."
+    $rooms = ($p.rooms | ForEach-Object { $rid = $_; ($roomDefs | Where-Object { $_.id -eq $rid }).name.ru.ToLower() }) -join ', '
+    return "Плитка $($p.name.ru) из коллекции $coll отличается изысканным дизайном цвета «$($color.ToLower())», $finish отделкой и форматом $size см. Изготовлена из материала «$material» европейского качества, подходит для помещений: $rooms. Идеальное сочетание элегантности и долговечности — для современных и классических интерьеров."
   }
 }
 
 # ------------- Layout helpers -------------
 function Render-Header($locale, $currentPage, $altLocaleHref) {
   $t = $i18n.$locale
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
-  $homeUrl = if ($locale -eq 'ro') { '/' } else { '/en/' }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
+  $homeUrl = if ($locale -eq 'ro') { '/' } else { '/ru/' }
   $catalog = "$base/catalog.html"
   $about = "$base/about.html"
   $contact = "$base/contact.html"
@@ -354,7 +353,7 @@ function Render-Header($locale, $currentPage, $altLocaleHref) {
 
 function Render-Footer($locale) {
   $t = $i18n.$locale
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
   $year = (Get-Date).Year
 @"
 <footer class="site-footer" role="contentinfo">
@@ -392,7 +391,7 @@ function Render-Footer($locale) {
 }
 
 function Render-LayoutHead($locale, $title, $description, $canonical, $altLocaleHref, $extraSchemaJson) {
-  $altHrefRoot = if ($locale -eq 'ro') { 'en' } else { 'ro' }
+  $altHrefRoot = if ($locale -eq 'ro') { 'ru' } else { 'ro' }
   $hreflangSelf = $locale
   $titleHE = HE $title
   $descHE = HE $description
@@ -417,7 +416,7 @@ function Render-LayoutHead($locale, $title, $description, $canonical, $altLocale
 <meta property="og:title" content="$titleHE">
 <meta property="og:description" content="$descHE">
 <meta property="og:url" content="$canonical">
-<meta property="og:locale" content="$($locale)_$( if ($locale -eq 'ro') { 'RO' } else { 'US' } )">
+<meta property="og:locale" content="$($locale)_$( if ($locale -eq 'ro') { 'RO' } else { 'RU' } )">
 <meta property="og:site_name" content="Casa Tile">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="$titleHE">
@@ -444,13 +443,13 @@ $extraScripts
 }
 
 function Format-Price($n, $locale) {
-  $ci = if ($locale -eq 'ro') { 'ro-RO' } else { 'en-US' }
+  $ci = if ($locale -eq 'ro') { 'ro-RO' } else { 'ru-RU' }
   return ([string][int]$n)
 }
 
 # ------------- Product card -------------
 function Render-ProductCard($p, $locale, $order) {
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
   $coll = Get-Coll $p.collection
   $name = HE $p.name.$locale
   $collName = HE $coll.name.$locale
@@ -497,8 +496,8 @@ function Render-ProductCard($p, $locale, $order) {
 # ------------- Pages -------------
 function Build-HomePage($locale) {
   $t = $i18n.$locale
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
-  $altBase = if ($locale -eq 'ro') { '/en/' } else { '/' }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
+  $altBase = if ($locale -eq 'ro') { '/ru/' } else { '/' }
   $canonical = "$SiteUrl$base/"
   $altLocaleHref = "$SiteUrl$altBase"
   $title = "$($site.name) - $(HE $site.tagline.$locale)"
@@ -617,8 +616,8 @@ $foot
 
 function Build-CatalogPage($locale) {
   $t = $i18n.$locale
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
-  $altBase = if ($locale -eq 'ro') { '/en/catalog.html' } else { '/catalog.html' }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
+  $altBase = if ($locale -eq 'ro') { '/ru/catalog.html' } else { '/catalog.html' }
   $canonical = "$SiteUrl$base/catalog.html"
   $altLocaleHref = "$SiteUrl$altBase"
   $title = "$(HE $t.catalog.title) - $($site.name)"
@@ -788,8 +787,8 @@ $foot
 
 function Build-AboutPage($locale) {
   $t = $i18n.$locale
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
-  $altBase = if ($locale -eq 'ro') { '/en/about.html' } else { '/about.html' }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
+  $altBase = if ($locale -eq 'ro') { '/ru/about.html' } else { '/about.html' }
   $canonical = "$SiteUrl$base/about.html"
   $altLocaleHref = "$SiteUrl$altBase"
   $title = "$(HE $t.about.title) - $($site.name)"
@@ -837,8 +836,8 @@ $foot
 
 function Build-ContactPage($locale) {
   $t = $i18n.$locale
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
-  $altBase = if ($locale -eq 'ro') { '/en/contact.html' } else { '/contact.html' }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
+  $altBase = if ($locale -eq 'ro') { '/ru/contact.html' } else { '/contact.html' }
   $canonical = "$SiteUrl$base/contact.html"
   $altLocaleHref = "$SiteUrl$altBase"
   $title = "$(HE $t.contact.title) - $($site.name)"
@@ -909,8 +908,8 @@ $foot
 
 function Build-ProductPage($p, $locale) {
   $t = $i18n.$locale
-  $base = if ($locale -eq 'ro') { '' } else { '/en' }
-  $altBase = if ($locale -eq 'ro') { "/en/pages/$($p.slug).html" } else { "/pages/$($p.slug).html" }
+  $base = if ($locale -eq 'ro') { '' } else { '/ru' }
+  $altBase = if ($locale -eq 'ro') { "/ru/pages/$($p.slug).html" } else { "/pages/$($p.slug).html" }
   $canonical = "$SiteUrl$base/pages/$($p.slug).html"
   $altLocaleHref = "$SiteUrl$altBase"
   $coll = Get-Coll $p.collection
@@ -1012,10 +1011,10 @@ $foot
 function Build-Sitemap {
   $now = (Get-Date).ToString('yyyy-MM-dd')
   $urls = New-Object System.Collections.Generic.List[string]
-  $locales = @('ro', 'en')
+  $locales = @('ro', 'ru')
   foreach ($l in $locales) {
-    $base = if ($l -eq 'ro') { '' } else { '/en' }
-    $alt = if ($l -eq 'ro') { '/en' } else { '' }
+    $base = if ($l -eq 'ro') { '' } else { '/ru' }
+    $alt = if ($l -eq 'ro') { '/ru' } else { '' }
     foreach ($pg in @('/', '/catalog.html', '/about.html', '/contact.html')) {
       $loc = "$SiteUrl$base$pg"
       $altLoc = "$SiteUrl$alt$pg"
@@ -1023,7 +1022,7 @@ function Build-Sitemap {
   <url>
     <loc>$loc</loc>
     <xhtml:link rel="alternate" hreflang="$l" href="$loc"/>
-    <xhtml:link rel="alternate" hreflang="$( if ($l -eq 'ro') { 'en' } else { 'ro' } )" href="$altLoc"/>
+    <xhtml:link rel="alternate" hreflang="$( if ($l -eq 'ro') { 'ru' } else { 'ro' } )" href="$altLoc"/>
     <lastmod>$now</lastmod>
     <changefreq>weekly</changefreq>
     <priority>$( if ($pg -eq '/') { '1.0' } else { '0.8' } )</priority>
@@ -1037,7 +1036,7 @@ function Build-Sitemap {
   <url>
     <loc>$loc</loc>
     <xhtml:link rel="alternate" hreflang="$l" href="$loc"/>
-    <xhtml:link rel="alternate" hreflang="$( if ($l -eq 'ro') { 'en' } else { 'ro' } )" href="$altLoc"/>
+    <xhtml:link rel="alternate" hreflang="$( if ($l -eq 'ro') { 'ru' } else { 'ro' } )" href="$altLoc"/>
     <lastmod>$now</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1097,13 +1096,13 @@ foreach ($p in $prods) {
   Write-File "$root\pages\$($p.slug).html" (Build-ProductPage $p 'ro')
 }
 
-Write-Host "Building EN pages..." -ForegroundColor Cyan
-Write-File "$root\en\index.html"        (Build-HomePage 'en')
-Write-File "$root\en\catalog.html"      (Build-CatalogPage 'en')
-Write-File "$root\en\about.html"        (Build-AboutPage 'en')
-Write-File "$root\en\contact.html"      (Build-ContactPage 'en')
+Write-Host "Building RU pages..." -ForegroundColor Cyan
+Write-File "$root\ru\index.html"        (Build-HomePage 'ru')
+Write-File "$root\ru\catalog.html"      (Build-CatalogPage 'ru')
+Write-File "$root\ru\about.html"        (Build-AboutPage 'ru')
+Write-File "$root\ru\contact.html"      (Build-ContactPage 'ru')
 foreach ($p in $prods) {
-  Write-File "$root\en\pages\$($p.slug).html" (Build-ProductPage $p 'en')
+  Write-File "$root\ru\pages\$($p.slug).html" (Build-ProductPage $p 'ru')
 }
 
 Write-Host "Generating sitemap and robots.txt..." -ForegroundColor Cyan

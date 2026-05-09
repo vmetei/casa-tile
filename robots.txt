@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://metei1997vasile.workers.dev/sitemap.xml
+Sitemap: https://casatile.example/sitemap.xml
