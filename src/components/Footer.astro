@@ -1,0 +1,43 @@
+---
+import type { Locale } from '../lib/data';
+import { i18n, site } from '../lib/data';
+import { homePath, catalogPath, aboutPath, contactPath } from '../lib/paths';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = i18n[locale];
+const year = new Date().getFullYear();
+const telHref = `tel:${site.phone.replace(/[^\d+]/g, '')}`;
+---
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand mb-2">Casa<span>Tile</span></div>
+        <p class="text-muted">{t.footer.description}</p>
+      </div>
+      <div>
+        <h4>{t.footer.quickLinks}</h4>
+        <ul>
+          <li><a href={homePath(locale)}>{t.nav.home}</a></li>
+          <li><a href={catalogPath(locale)}>{t.nav.catalog}</a></li>
+          <li><a href={aboutPath(locale)}>{t.nav.about}</a></li>
+          <li><a href={contactPath(locale)}>{t.nav.contact}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>{t.footer.contact}</h4>
+        <ul>
+          <li class="text-muted">{site.address[locale]}</li>
+          <li><a href={telHref}>{site.phone}</a></li>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {year} Casa Tile. {t.footer.rights}</span>
+      <span>{t.footer.privacy} · {t.footer.terms}</span>
+    </div>
+  </div>
+</footer>

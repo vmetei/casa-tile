@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../BaseLayout.astro';
+import ProductCard from '../ProductCard.astro';
+import type { Locale } from '../../lib/data';
+import { i18n, site, collections, getProducts } from '../../lib/data';
+import { homePath, catalogPath, contactPath, otherLocale, svgPath } from '../../lib/paths';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = i18n[locale];
+
+const products = await getProducts();
+const featured = products.filter((p) => p.data.featured).slice(0, 8);
+const heroVisuals = products.filter((p) => p.data.featured).slice(0, 4);
+
+const altLocale = otherLocale(locale);
+const pathname = homePath(locale);
+const altPathname = homePath(altLocale);
+const title = `${site.name} - ${site.tagline[locale]}`;
+const description = t.home.heroSubtitle;
+
+const orgSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Store',
+  name: 'Casa Tile',
+  url: Astro.site?.toString(),
+  telephone: site.phone,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address[locale],
+  },
+});
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  pathname={pathname}
+  altPathname={altPathname}
+  schemaJson={orgSchema}
+>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h1>{t.home.heroTitle}</h1>
+          <p class="lead">{t.home.heroSubtitle}</p>
+          <div class="hero-actions">
+            <a href={catalogPath(locale)} class="btn btn-primary">{t.home.heroCta}</a>
+            <a href={contactPath(locale)} class="btn btn-secondary">{t.home.heroCtaSecondary}</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          {heroVisuals.map((p) => (
+            <div><img src={svgPath(p.id)} alt={p.data.name[locale]} loading="eager" width="600" height="600" /></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">{t.home.featuredTitle}</span>
+            <h2>{t.home.featuredTitle}</h2>
+            <p>{t.home.featuredSubtitle}</p>
+          </div>
+          <a href={catalogPath(locale)} class="btn btn-secondary">{t.home.viewAll}</a>
+        </div>
+        <div class="product-grid">
+          {featured.map((p, i) => <ProductCard product={p} locale={locale} order={i} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="collections-strip">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">{t.home.collectionsTitle}</span>
+            <h2>{t.home.collectionsTitle}</h2>
+            <p>{t.home.collectionsSubtitle}</p>
+          </div>
+        </div>
+        <div class="collections-grid">
+          {collections.map((c) => {
+            const sample = products.find((p) => p.data.collection === c.id);
+            return (
+              <a href={`${catalogPath(locale)}#collection-${c.id}`} class="collection-card">
+                <img src={sample ? svgPath(sample.id) : ''} alt={c.name[locale]} loading="lazy" width="600" height="600" />
+                <span class="label">{c.name[locale]}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">{t.home.valuesTitle}</span><h2>{t.home.valuesTitle}</h2></div></div>
+        <div class="values-grid">
+          <div class="value">
+            <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></svg></div>
+            <h3>{t.home.value1Title}</h3><p>{t.home.value1Body}</p>
+          </div>
+          <div class="value">
+            <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <h3>{t.home.value2Title}</h3><p>{t.home.value2Body}</p>
+          </div>
+          <div class="value">
+            <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16,8 20,8 23,11 23,16 16,16"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+            <h3>{t.home.value3Title}</h3><p>{t.home.value3Body}</p>
+          </div>
+          <div class="value">
+            <div class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <h3>{t.home.value4Title}</h3><p>{t.home.value4Body}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

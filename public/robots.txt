@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://casatile.example/sitemap-index.xml

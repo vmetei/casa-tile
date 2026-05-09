@@ -1,0 +1,25 @@
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+  site: 'https://casatile.example',
+  trailingSlash: 'ignore',
+  i18n: {
+    defaultLocale: 'ro',
+    locales: ['ro', 'ru'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'ro',
+        locales: { ro: 'ro-RO', ru: 'ru-RU' },
+      },
+    }),
+  ],
+  build: {
+    format: 'directory',
+  },
+});

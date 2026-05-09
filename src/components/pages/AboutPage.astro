@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../BaseLayout.astro';
+import type { Locale } from '../../lib/data';
+import { i18n, site, getProducts } from '../../lib/data';
+import { aboutPath, contactPath, otherLocale } from '../../lib/paths';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = i18n[locale];
+
+const products = await getProducts();
+const altLocale = otherLocale(locale);
+const pathname = aboutPath(locale);
+const altPathname = aboutPath(altLocale);
+const title = `${t.about.title} - ${site.name}`;
+const description = t.about.lead;
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  pathname={pathname}
+  altPathname={altPathname}
+>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>{t.about.title}</h1>
+        <p class="lead">{t.about.lead}</p>
+      </div>
+    </section>
+    <section>
+      <div class="container about-grid">
+        <div>
+          <p>{t.about.p1}</p>
+          <p>{t.about.p2}</p>
+          <p>{t.about.p3}</p>
+          <a href={contactPath(locale)} class="btn btn-primary">{t.contact.title}</a>
+        </div>
+        <div>
+          <div class="stats-grid">
+            <div class="stat"><div class="num">15+</div><div class="label">{t.about.stat1}</div></div>
+            <div class="stat"><div class="num">5000+</div><div class="label">{t.about.stat2}</div></div>
+            <div class="stat"><div class="num">{products.length}+</div><div class="label">{t.about.stat3}</div></div>
+            <div class="stat"><div class="num">3</div><div class="label">{t.about.stat4}</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

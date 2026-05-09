@@ -1,0 +1,169 @@
+---
+import type { Locale, Product } from '../lib/data';
+import { i18n, collections, filters } from '../lib/data';
+
+interface Props {
+  locale: Locale;
+  products: Product[];
+}
+
+const { locale, products } = Astro.props;
+const t = i18n[locale];
+
+// Build size list, sorted by area (small to large), with counts.
+type Counted<T> = T & { count: number };
+
+function buildCounted<T extends { id: string }>(items: T[], match: (p: Product, item: T) => boolean): Counted<T>[] {
+  return items
+    .map((it) => ({ ...it, count: products.filter((p) => match(p, it)).length }))
+    .filter((it) => it.count > 0);
+}
+
+const collectionItems = buildCounted(
+  collections.map((c) => ({ id: c.id, label: c.name[locale] })),
+  (p, it) => p.data.collection === it.id
+);
+
+const sizeIds = Array.from(new Set(products.map((p) => p.data.size)))
+  .sort((a, b) => {
+    const [aw, ah] = a.split('x').map(Number);
+    const [bw, bh] = b.split('x').map(Number);
+    return aw * ah - bw * bh;
+  });
+const sizeItems = buildCounted(
+  sizeIds.map((s) => ({ id: s, label: `${s} cm` })),
+  (p, it) => p.data.size === it.id
+);
+
+const roomItems = buildCounted(
+  filters.rooms.map((r) => ({ id: r.id, label: r.name[locale] })),
+  (p, it) => p.data.rooms.includes(it.id)
+);
+const finishItems = buildCounted(
+  filters.finishes.map((f) => ({ id: f.id, label: f.name[locale] })),
+  (p, it) => p.data.finish === it.id
+);
+const materialItems = buildCounted(
+  filters.materials.map((m) => ({ id: m.id, label: m.name[locale] })),
+  (p, it) => p.data.material === it.id
+);
+
+// Color swatches show every color present in products
+const colorIds = Array.from(new Set(products.map((p) => p.data.color))).sort();
+const colorItems = filters.colors.filter((c) => colorIds.includes(c.id));
+---
+
+<aside class="filters-panel" data-filters data-open="false" aria-label={t.catalog.filters}>
+  <div class="filters-head">
+    <span>{t.catalog.filters}</span>
+    <div style="display:flex;gap:.5rem;align-items:center">
+      <button type="button" class="btn-ghost" style="font-size:.85rem;padding:4px 8px" data-clear-filters>{t.catalog.clearFilters}</button>
+      <button type="button" class="filter-close btn-ghost" data-close-filters aria-label="Close filters">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M6 18L18 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="filter-group" data-collapsed="false">
+    <button class="filter-group-title" type="button">
+      <span>{t.catalog.collection}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="filter-options">
+      {collectionItems.map((it) => (
+        <label class="filter-option">
+          <input type="checkbox" data-filter="collection" value={it.id} />
+          <span>{it.label}</span><span class="count">{it.count}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter-group" data-collapsed="false">
+    <button class="filter-group-title" type="button">
+      <span>{t.catalog.color}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="filter-options">
+      <div class="color-grid">
+        {colorItems.map((c) => (
+          <label class="color-swatch" style={`background:${c.hex}`} title={c.name[locale]}>
+            <input type="checkbox" data-filter="color" value={c.id} />
+            <span class="sr-only">{c.name[locale]}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-group" data-collapsed="false">
+    <button class="filter-group-title" type="button">
+      <span>{t.catalog.size}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="filter-options">
+      {sizeItems.map((it) => (
+        <label class="filter-option">
+          <input type="checkbox" data-filter="size" value={it.id} />
+          <span>{it.label}</span><span class="count">{it.count}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter-group" data-collapsed="false">
+    <button class="filter-group-title" type="button">
+      <span>{t.catalog.room}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="filter-options">
+      {roomItems.map((it) => (
+        <label class="filter-option">
+          <input type="checkbox" data-filter="room" value={it.id} />
+          <span>{it.label}</span><span class="count">{it.count}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter-group" data-collapsed="false">
+    <button class="filter-group-title" type="button">
+      <span>{t.catalog.finish}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="filter-options">
+      {finishItems.map((it) => (
+        <label class="filter-option">
+          <input type="checkbox" data-filter="finish" value={it.id} />
+          <span>{it.label}</span><span class="count">{it.count}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter-group" data-collapsed="false">
+    <button class="filter-group-title" type="button">
+      <span>{t.catalog.material}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="filter-options">
+      {materialItems.map((it) => (
+        <label class="filter-option">
+          <input type="checkbox" data-filter="material" value={it.id} />
+          <span>{it.label}</span><span class="count">{it.count}</span>
+        </label>
+      ))}
+    </div>
+  </div>
+
+  <div class="filter-group" data-collapsed="false">
+    <button class="filter-group-title" type="button">
+      <span>{t.catalog.priceRange}</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+    </button>
+    <div class="filter-options" style="display:flex;flex-direction:row;gap:.5rem">
+      <input type="number" data-min-price placeholder="Min" min="0" style="width:50%;padding:.5rem;border:1px solid var(--c-border);border-radius:6px" />
+      <input type="number" data-max-price placeholder="Max" min="0" style="width:50%;padding:.5rem;border:1px solid var(--c-border);border-radius:6px" />
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,35 @@
+{
+  "rooms": [
+    { "id": "bathroom",    "name": { "ro": "Baie",        "ru": "Ванная" } },
+    { "id": "kitchen",     "name": { "ro": "Bucătărie",   "ru": "Кухня" } },
+    { "id": "living-room", "name": { "ro": "Living",      "ru": "Гостиная" } },
+    { "id": "bedroom",     "name": { "ro": "Dormitor",    "ru": "Спальня" } },
+    { "id": "outdoor",     "name": { "ro": "Exterior",    "ru": "Экстерьер" } },
+    { "id": "commercial",  "name": { "ro": "Comercial",   "ru": "Коммерческие" } }
+  ],
+  "finishes": [
+    { "id": "matte",     "name": { "ro": "Mat",       "ru": "Матовый" } },
+    { "id": "glossy",    "name": { "ro": "Lucios",    "ru": "Глянцевый" } },
+    { "id": "satin",     "name": { "ro": "Satinat",   "ru": "Сатиновый" } },
+    { "id": "polished",  "name": { "ro": "Lustruit",  "ru": "Полированный" } },
+    { "id": "textured",  "name": { "ro": "Texturat",  "ru": "Текстурированный" } }
+  ],
+  "materials": [
+    { "id": "porcelain", "name": { "ro": "Gresie porțelanată", "ru": "Керамогранит" } },
+    { "id": "ceramic",   "name": { "ro": "Ceramică",           "ru": "Керамика" } },
+    { "id": "mosaic",    "name": { "ro": "Mozaic",             "ru": "Мозаика" } }
+  ],
+  "colors": [
+    { "id": "white",      "hex": "#ffffff", "name": { "ro": "Alb",       "ru": "Белый" } },
+    { "id": "cream",      "hex": "#f4ead4", "name": { "ro": "Crem",      "ru": "Кремовый" } },
+    { "id": "beige",      "hex": "#d4c4a0", "name": { "ro": "Bej",       "ru": "Бежевый" } },
+    { "id": "sand",       "hex": "#cdbfa1", "name": { "ro": "Nisip",     "ru": "Песочный" } },
+    { "id": "grey",       "hex": "#9c9a96", "name": { "ro": "Gri",       "ru": "Серый" } },
+    { "id": "anthracite", "hex": "#3d3f42", "name": { "ro": "Antracit",  "ru": "Антрацит" } },
+    { "id": "black",      "hex": "#1f1f23", "name": { "ro": "Negru",     "ru": "Чёрный" } },
+    { "id": "brown",      "hex": "#7a4f2a", "name": { "ro": "Maro",      "ru": "Коричневый" } },
+    { "id": "terracotta", "hex": "#c47550", "name": { "ro": "Teracotă",  "ru": "Терракот" } },
+    { "id": "blue",       "hex": "#3a7aa8", "name": { "ro": "Albastru",  "ru": "Синий" } },
+    { "id": "green",      "hex": "#3d6b54", "name": { "ro": "Verde",     "ru": "Зелёный" } }
+  ]
+}

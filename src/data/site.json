@@ -1,0 +1,13 @@
+{
+  "name": "Casa Tile",
+  "tagline": {
+    "ro": "Plăci ceramice și gresie pentru casa ta",
+    "ru": "Керамическая плитка и керамогранит для вашего дома"
+  },
+  "phone": "+373 22 123 456",
+  "email": "info@casatile.example",
+  "address": {
+    "ro": "Str. Exemplu 1, Chișinău",
+    "ru": "ул. Пример 1, Кишинёв"
+  }
+}

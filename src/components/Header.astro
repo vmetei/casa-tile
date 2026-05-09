@@ -1,0 +1,43 @@
+---
+import type { Locale } from '../lib/data';
+import { i18n } from '../lib/data';
+import { homePath, catalogPath, aboutPath, contactPath } from '../lib/paths';
+
+interface Props {
+  locale: Locale;
+  altLocaleHref: string;
+}
+
+const { locale, altLocaleHref } = Astro.props;
+const t = i18n[locale];
+---
+
+<header class="site-header" role="banner">
+  <div class="container header-row">
+    <a href={homePath(locale)} class="brand" aria-label="Casa Tile">Casa<span>Tile</span></a>
+    <nav class="nav" aria-label={t.nav.home}>
+      <ul>
+        <li><a href={homePath(locale)} data-nav-link>{t.nav.home}</a></li>
+        <li><a href={catalogPath(locale)} data-nav-link>{t.nav.catalog}</a></li>
+        <li><a href={aboutPath(locale)} data-nav-link>{t.nav.about}</a></li>
+        <li><a href={contactPath(locale)} data-nav-link>{t.nav.contact}</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="lang-switch" data-lang-switch data-target={altLocaleHref} aria-label={t.switchTo}>
+        {t.switchTo}
+      </button>
+      <button class="menu-toggle btn-ghost" data-menu-toggle aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu data-open="false">
+    <ul>
+      <li><a href={homePath(locale)}>{t.nav.home}</a></li>
+      <li><a href={catalogPath(locale)}>{t.nav.catalog}</a></li>
+      <li><a href={aboutPath(locale)}>{t.nav.about}</a></li>
+      <li><a href={contactPath(locale)}>{t.nav.contact}</a></li>
+    </ul>
+  </div>
+</header>

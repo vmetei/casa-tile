@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../BaseLayout.astro';
+import ProductCard from '../ProductCard.astro';
+import type { Locale, Product } from '../../lib/data';
+import {
+  i18n, site, getProducts,
+  getCollectionById, getRoomById, getFinishById, getMaterialById, getColorById,
+} from '../../lib/data';
+import { contactPath, homePath, catalogPath, productPath, otherLocale, svgPath } from '../../lib/paths';
+
+interface Props { locale: Locale; product: Product; }
+const { locale, product } = Astro.props;
+const t = i18n[locale];
+const data = product.data;
+
+const coll = getCollectionById(data.collection)!;
+const colorDef = getColorById(data.color);
+const finishDef = getFinishById(data.finish);
+const materialDef = getMaterialById(data.material);
+
+const altLocale = otherLocale(locale);
+const pathname = productPath(locale, product.id);
+const altPathname = productPath(altLocale, product.id);
+const title = `${data.name[locale]} - ${coll.name[locale]} - ${site.name}`;
+
+const colorLabel = colorDef?.name[locale] ?? data.color;
+const finishLabel = finishDef?.name[locale] ?? data.finish;
+const materialLabel = materialDef?.name[locale] ?? data.material;
+const roomNames = data.rooms
+  .map((id) => getRoomById(id)?.name[locale] ?? id)
+  .join(', ');
+
+// Build Russian/Romanian description
+const description = locale === 'ro'
+  ? `Plăcile ${data.name.ro} din colecția ${coll.name.ro} oferă un design rafinat în nuanță ${colorLabel.toLowerCase()}, finisaj ${finishLabel.toLowerCase()} și format ${data.size} cm. Realizate din ${materialLabel.toLowerCase()} de calitate europeană, sunt potrivite pentru: ${roomNames.toLowerCase()}. Combinație perfectă între eleganță și durabilitate, ideale pentru spații moderne sau clasice.`
+  : `Плитка ${data.name.ru} из коллекции ${coll.name.ru} отличается изысканным дизайном цвета «${colorLabel.toLowerCase()}», ${finishLabel.toLowerCase()} отделкой и форматом ${data.size} см. Изготовлена из материала «${materialLabel.toLowerCase()}» европейского качества, подходит для помещений: ${roomNames.toLowerCase()}. Идеальное сочетание элегантности и долговечности — для современных и классических интерьеров.`;
+
+const allProducts = await getProducts();
+const related = allProducts
+  .filter((p) => p.data.collection === data.collection && p.id !== product.id)
+  .slice(0, 4);
+
+const stockBadgeClass = data.stock ? 'badge-success' : 'badge-danger';
+const stockLabel = data.stock ? t.catalog.inStock : t.catalog.outOfStock;
+const price = String(Math.round(data.price));
+const img = svgPath(product.id);
+const telHref = `tel:${site.phone.replace(/[^\d+]/g, '')}`;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const productSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: data.name[locale],
+  description: description,
+  image: `${siteUrl}${img}`,
+  brand: { '@type': 'Brand', name: 'Casa Tile' },
+  category: coll.name[locale],
+  sku: product.id,
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'MDL',
+    price: data.price,
+    availability: data.stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+    url: `${siteUrl}${pathname}`,
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: data.price,
+      priceCurrency: 'MDL',
+      unitCode: 'MTK',
+    },
+  },
+});
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  pathname={pathname}
+  altPathname={altPathname}
+  schemaJson={productSchema}
+>
+  <main id="main">
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href={homePath(locale)}>{t.nav.home}</a>
+        <span aria-hidden="true">/</span>
+        <a href={catalogPath(locale)}>{t.nav.catalog}</a>
+        <span aria-hidden="true">/</span>
+        <span>{data.name[locale]}</span>
+      </nav>
+
+      <div class="product-detail">
+        <div class="product-image-large">
+          <img src={img} alt={data.name[locale]} width="800" height="800" />
+        </div>
+        <div class="product-info">
+          <span class="product-collection">{coll.name[locale]}</span>
+          <h1>{data.name[locale]}</h1>
+          <div class="product-price">{price} <small>{t.catalog.perSqm}</small></div>
+          <div class="stock-line"><span class={`badge ${stockBadgeClass}`}>{stockLabel}</span></div>
+
+          <p>{description}</p>
+
+          <table class="spec-table">
+            <tr><th>{t.product.collection}</th><td>{coll.name[locale]}</td></tr>
+            <tr><th>{t.product.size}</th><td>{data.size} cm</td></tr>
+            <tr><th>{t.product.thickness}</th><td>{data.thickness} mm</td></tr>
+            <tr><th>{t.product.material}</th><td>{materialLabel}</td></tr>
+            <tr><th>{t.product.finish}</th><td>{finishLabel}</td></tr>
+            <tr><th>{t.product.color}</th><td>{colorLabel}</td></tr>
+            <tr><th>{t.product.waterAbsorption}</th><td>{data.waterAbsorption}</td></tr>
+            <tr><th>{t.product.frostResistant}</th><td>{data.frostResistant ? t.product.yes : t.product.no}</td></tr>
+            <tr><th>{t.product.rooms}</th><td>{roomNames}</td></tr>
+          </table>
+
+          <div class="product-actions">
+            <a href={`${contactPath(locale)}?product=${product.id}`} class="btn btn-primary">{t.product.requestQuote}</a>
+            <a href={telHref} class="btn btn-secondary">{t.product.callUs} {site.phone}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><div><h2>{t.product.related}</h2></div><a href={catalogPath(locale)} class="btn btn-secondary">{t.home.viewAll}</a></div>
+        <div class="product-grid">
+          {related.map((p, i) => <ProductCard product={p} locale={locale} order={i} />)}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

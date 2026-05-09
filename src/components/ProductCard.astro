@@ -1,0 +1,54 @@
+---
+import type { Locale, Product } from '../lib/data';
+import { i18n, getCollectionById, getColorById } from '../lib/data';
+import { productPath, svgPath } from '../lib/paths';
+
+interface Props {
+  product: Product;
+  locale: Locale;
+  order?: number;
+}
+
+const { product, locale, order = 0 } = Astro.props;
+const t = i18n[locale];
+const data = product.data;
+const coll = getCollectionById(data.collection)!;
+const colorDef = getColorById(data.color);
+const collName = coll.name[locale];
+const name = data.name[locale];
+const price = String(Math.round(data.price));
+const stockBadgeClass = data.stock ? 'badge-success' : 'badge-danger';
+const stockLabel = data.stock ? t.catalog.inStock : t.catalog.outOfStock;
+const altImg = `${name} - ${collName}`;
+const href = productPath(locale, product.id);
+const img = svgPath(product.id);
+---
+
+<article
+  class="product-card"
+  data-collection={data.collection}
+  data-color={data.color}
+  data-size={data.size}
+  data-finish={data.finish}
+  data-material={data.material}
+  data-rooms={data.rooms.join(',')}
+  data-price={data.price}
+  data-name={name}
+  data-stock={String(data.stock)}
+  data-featured={String(data.featured)}
+  data-order={order}
+>
+  <a href={href} class="img-wrap" aria-label={name}>
+    <span class={`stock-tag badge ${stockBadgeClass}`}>{stockLabel}</span>
+    <img src={img} alt={altImg} loading="lazy" width="600" height="600" />
+  </a>
+  <div class="body">
+    <span class="collection">{collName}</span>
+    <h3 class="name"><a href={href}>{name}</a></h3>
+    <span class="meta">{data.size} cm · {colorDef?.name[locale] ?? data.color}</span>
+    <div class="price-row">
+      <span class="price">{price} <small>{t.catalog.perSqm}</small></span>
+      <span class="badge badge-accent">{data.size}</span>
+    </div>
+  </div>
+</article>

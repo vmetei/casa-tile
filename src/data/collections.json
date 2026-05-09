@@ -1,0 +1,10 @@
+[
+  { "id": "marmo-classico",   "name": { "ro": "Marmo Classico",   "ru": "Marmo Classico" }, "description": { "ro": "Eleganța atemporală a marmurei naturale.", "ru": "Вечная элегантность натурального мрамора." } },
+  { "id": "legno-natura",     "name": { "ro": "Legno Natura",     "ru": "Legno Natura" },   "description": { "ro": "Căldura lemnului în formă de gresie porțelanată.", "ru": "Тепло дерева в форме керамогранита." } },
+  { "id": "concreto-urbano",  "name": { "ro": "Concreto Urbano",  "ru": "Concreto Urbano" }, "description": { "ro": "Stil industrial modern, inspirat din betonul urban.", "ru": "Современный индустриальный стиль, вдохновлённый городским бетоном." } },
+  { "id": "terrazzo-mosaico", "name": { "ro": "Terrazzo Mosaico", "ru": "Terrazzo Mosaico" }, "description": { "ro": "Reinterpretare contemporană a terrazzo-ului italian.", "ru": "Современная переработка итальянского терраццо." } },
+  { "id": "metro-city",       "name": { "ro": "Metro City",       "ru": "Metro City" },     "description": { "ro": "Clasicele plăci metro pentru un stil retro elegant.", "ru": "Классическая плитка метро для элегантного ретро-стиля." } },
+  { "id": "esagono",          "name": { "ro": "Esagono",          "ru": "Esagono" },        "description": { "ro": "Forme hexagonale geometrice pentru spații moderne.", "ru": "Геометрические шестиугольные формы для современных пространств." } },
+  { "id": "pietra-antica",    "name": { "ro": "Pietra Antica",    "ru": "Pietra Antica" },  "description": { "ro": "Aspectul autentic al pietrei naturale antice.", "ru": "Аутентичный вид античного натурального камня." } },
+  { "id": "decoro-arte",      "name": { "ro": "Decoro Arte",      "ru": "Decoro Arte" },    "description": { "ro": "Modele decorative pentru accente artistice.", "ru": "Декоративные узоры для художественных акцентов." } }
+]

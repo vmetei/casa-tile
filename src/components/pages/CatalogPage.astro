@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../BaseLayout.astro';
+import ProductCard from '../ProductCard.astro';
+import FilterPanel from '../FilterPanel.astro';
+import type { Locale } from '../../lib/data';
+import { i18n, site, getProducts } from '../../lib/data';
+import { catalogPath, otherLocale, productPath } from '../../lib/paths';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const t = i18n[locale];
+
+const products = await getProducts();
+const altLocale = otherLocale(locale);
+
+const pathname = catalogPath(locale);
+const altPathname = catalogPath(altLocale);
+const title = `${t.catalog.title} - ${site.name}`;
+const description = t.catalog.description;
+
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const itemListSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: products.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `${siteUrl}${productPath(locale, p.id)}`,
+    name: p.data.name[locale],
+  })),
+});
+
+const resultsTpl = `{count} ${t.catalog.results}`;
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  pathname={pathname}
+  altPathname={altPathname}
+  schemaJson={itemListSchema}
+>
+  <main id="main">
+    <section class="page-hero tight">
+      <div class="container">
+        <h1>{t.catalog.title}</h1>
+        <p class="lead">{t.catalog.description}</p>
+      </div>
+    </section>
+
+    <section class="tight">
+      <div class="container">
+        <div class="catalog-layout">
+          <FilterPanel locale={locale} products={products} />
+
+          <div>
+            <div class="toolbar">
+              <button type="button" class="btn btn-secondary show-filters-btn" data-show-filters>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+                {t.catalog.filters}
+              </button>
+              <span class="results-count" data-result-count data-template={resultsTpl}>
+                <strong>{products.length}</strong> {t.catalog.results}
+              </span>
+              <label style="display:flex;gap:.5rem;align-items:center">
+                <span style="font-size:.85rem;color:var(--c-text-muted)">{t.catalog.sortBy}</span>
+                <select data-sort>
+                  <option value="newest">{t.catalog.sortNewest}</option>
+                  <option value="price-asc">{t.catalog.sortPriceAsc}</option>
+                  <option value="price-desc">{t.catalog.sortPriceDesc}</option>
+                  <option value="name-asc">{t.catalog.sortNameAsc}</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="product-grid" data-product-grid>
+              {products.map((p, i) => <ProductCard product={p} locale={locale} order={i} />)}
+            </div>
+            <div class="no-results" data-no-results hidden>{t.catalog.noResults}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="/scripts/catalog.js" defer></script>
+</BaseLayout>
