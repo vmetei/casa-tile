@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://metei1997vasile.workers.dev/</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/catalog.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/catalog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/catalog.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/about.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/contact.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/carrara-white-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/carrara-white-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/carrara-white-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/calacatta-gold-80x80.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/calacatta-gold-80x80.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/calacatta-gold-80x80.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/marquina-black-60x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/marquina-black-60x120.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/marquina-black-60x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/emperador-brown-30x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/emperador-brown-30x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/emperador-brown-30x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/statuario-grey-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/statuario-grey-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/statuario-grey-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/rovere-natural-20x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/rovere-natural-20x120.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/rovere-natural-20x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/noce-walnut-15x90.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/noce-walnut-15x90.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/noce-walnut-15x90.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/frassino-grey-20x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/frassino-grey-20x120.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/frassino-grey-20x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/rovere-bianco-20x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/rovere-bianco-20x120.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/rovere-bianco-20x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/concrete-grey-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-grey-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-grey-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/concrete-anthracite-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-anthracite-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-anthracite-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/concrete-sand-30x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-sand-30x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-sand-30x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/concrete-white-80x80.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-white-80x80.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-white-80x80.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/terrazzo-classic-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/terrazzo-classic-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/terrazzo-classic-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/terrazzo-pink-30x30.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/terrazzo-pink-30x30.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/terrazzo-pink-30x30.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/terrazzo-black-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/terrazzo-black-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/terrazzo-black-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/metro-white-7.5x15.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/metro-white-7.5x15.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/metro-white-7.5x15.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/metro-green-7.5x15.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/metro-green-7.5x15.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/metro-green-7.5x15.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/metro-blue-7.5x15.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/metro-blue-7.5x15.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/metro-blue-7.5x15.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/esagono-white-25x29.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/esagono-white-25x29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/esagono-white-25x29.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/esagono-grey-25x29.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/esagono-grey-25x29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/esagono-grey-25x29.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/esagono-terracotta-25x29.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/esagono-terracotta-25x29.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/esagono-terracotta-25x29.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/pietra-beige-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-beige-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-beige-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/pietra-anthracite-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-anthracite-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-anthracite-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/pietra-grey-30x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-grey-30x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-grey-30x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/pietra-cream-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-cream-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-cream-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/decoro-azure-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-azure-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-azure-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/decoro-mediterraneo-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-mediterraneo-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-mediterraneo-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/decoro-monochrome-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-monochrome-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-monochrome-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/pages/decoro-emerald-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-emerald-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-emerald-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/catalog.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/catalog.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/catalog.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/about.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/contact.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/carrara-white-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/carrara-white-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/carrara-white-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/calacatta-gold-80x80.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/calacatta-gold-80x80.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/calacatta-gold-80x80.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/marquina-black-60x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/marquina-black-60x120.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/marquina-black-60x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/emperador-brown-30x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/emperador-brown-30x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/emperador-brown-30x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/statuario-grey-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/statuario-grey-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/statuario-grey-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/rovere-natural-20x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/rovere-natural-20x120.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/rovere-natural-20x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/noce-walnut-15x90.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/noce-walnut-15x90.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/noce-walnut-15x90.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/frassino-grey-20x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/frassino-grey-20x120.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/frassino-grey-20x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/rovere-bianco-20x120.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/rovere-bianco-20x120.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/rovere-bianco-20x120.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/concrete-grey-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-grey-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-grey-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/concrete-anthracite-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-anthracite-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-anthracite-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/concrete-sand-30x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-sand-30x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-sand-30x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/concrete-white-80x80.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/concrete-white-80x80.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/concrete-white-80x80.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/terrazzo-classic-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/terrazzo-classic-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/terrazzo-classic-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/terrazzo-pink-30x30.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/terrazzo-pink-30x30.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/terrazzo-pink-30x30.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/terrazzo-black-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/terrazzo-black-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/terrazzo-black-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/metro-white-7.5x15.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/metro-white-7.5x15.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/metro-white-7.5x15.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/metro-green-7.5x15.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/metro-green-7.5x15.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/metro-green-7.5x15.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/metro-blue-7.5x15.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/metro-blue-7.5x15.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/metro-blue-7.5x15.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/esagono-white-25x29.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/esagono-white-25x29.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/esagono-white-25x29.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/esagono-grey-25x29.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/esagono-grey-25x29.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/esagono-grey-25x29.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/esagono-terracotta-25x29.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/esagono-terracotta-25x29.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/esagono-terracotta-25x29.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/pietra-beige-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-beige-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-beige-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/pietra-anthracite-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-anthracite-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-anthracite-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/pietra-grey-30x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-grey-30x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-grey-30x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/pietra-cream-60x60.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/pietra-cream-60x60.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/pietra-cream-60x60.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/decoro-azure-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-azure-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-azure-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/decoro-mediterraneo-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-mediterraneo-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-mediterraneo-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/decoro-monochrome-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-monochrome-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-monochrome-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://metei1997vasile.workers.dev/en/pages/decoro-emerald-20x20.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://metei1997vasile.workers.dev/en/pages/decoro-emerald-20x20.html"/>
+    <xhtml:link rel="alternate" hreflang="ro" href="https://metei1997vasile.workers.dev/pages/decoro-emerald-20x20.html"/>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

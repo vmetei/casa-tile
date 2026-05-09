@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\vasile\\\\source\\\\repos\\\\Website\\\\build.ps1\" 2>&1 | Select-Object -Last 10)"
+    ]
+  }
+}
