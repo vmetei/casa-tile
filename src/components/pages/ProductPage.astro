@@ -1,4 +1,5 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../BaseLayout.astro';
 import ProductCard from '../ProductCard.astro';
 import type { Locale, Product } from '../../lib/data';
@@ -6,7 +7,8 @@ import {
   i18n, site, getProducts,
   getCollectionById, getRoomById, getFinishById, getMaterialById, getColorById,
 } from '../../lib/data';
-import { contactPath, homePath, catalogPath, productPath, otherLocale, svgPath } from '../../lib/paths';
+import { contactPath, homePath, catalogPath, productPath, otherLocale } from '../../lib/paths';
+import { getProductImage } from '../../lib/photos';
 
 interface Props { locale: Locale; product: Product; }
 const { locale, product } = Astro.props;
@@ -43,7 +45,13 @@ const related = allProducts
 const stockBadgeClass = data.stock ? 'badge-success' : 'badge-danger';
 const stockLabel = data.stock ? t.catalog.inStock : t.catalog.outOfStock;
 const price = String(Math.round(data.price));
-const img = svgPath(product.id);
+const image = getProductImage(product.id);
+// Resolve absolute URL for the schema's "image" field.
+// For a real photo, run it through the image pipeline so the schema points at
+// the optimized asset. For the SVG fallback, just use the raw path.
+const schemaImageUrl = image.isPhoto
+  ? (await getImage({ src: image.metadata, format: 'webp', width: 1200 })).src
+  : image.src;
 const telHref = `tel:${site.phone.replace(/[^\d+]/g, '')}`;
 const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? '';
 
@@ -52,7 +60,7 @@ const productSchema = JSON.stringify({
   '@type': 'Product',
   name: data.name[locale],
   description: description,
-  image: `${siteUrl}${img}`,
+  image: `${siteUrl}${schemaImageUrl}`,
   brand: { '@type': 'Brand', name: 'Casa Tile' },
   category: coll.name[locale],
   sku: product.id,
@@ -91,8 +99,28 @@ const productSchema = JSON.stringify({
       </nav>
 
       <div class="product-detail">
-        <div class="product-image-large">
-          <img src={img} alt={data.name[locale]} width="800" height="800" />
+        <div class={`product-image-large${image.isPhoto ? '' : ' is-placeholder'}`}>
+          {!image.isPhoto && (
+            <span class="photo-missing-tag photo-missing-tag-lg" title={t.common.photoUnavailableLong}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+              <span>{t.common.photoUnavailableLong}</span>
+            </span>
+          )}
+          {image.isPhoto ? (
+            <Image
+              src={image.metadata}
+              alt={data.name[locale]}
+              widths={[600, 900, 1200, 1600]}
+              sizes="(min-width: 900px) 540px, 100vw"
+              loading="eager"
+              format="webp"
+            />
+          ) : (
+            <img src={image.src} alt={data.name[locale]} width="800" height="800" />
+          )}
         </div>
         <div class="product-info">
           <span class="product-collection">{coll.name[locale]}</span>

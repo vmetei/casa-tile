@@ -118,7 +118,9 @@
       "currency": "lei",
       "perSqm": "lei/m²",
       "viewProduct": "Vezi produs",
-      "skipToContent": "Sari la conținut"
+      "skipToContent": "Sari la conținut",
+      "photoUnavailable": "Foto indisponibilă",
+      "photoUnavailableLong": "Imagine reprezentativă - fotografie indisponibilă"
     }
   },
   "ru": {
@@ -240,7 +242,9 @@
       "currency": "лей",
       "perSqm": "лей/м²",
       "viewProduct": "Смотреть товар",
-      "skipToContent": "Перейти к содержимому"
+      "skipToContent": "Перейти к содержимому",
+      "photoUnavailable": "Фото отсутствует",
+      "photoUnavailableLong": "Изображение-образец - фотография недоступна"
     }
   }
 }

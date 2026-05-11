@@ -1,9 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../BaseLayout.astro';
 import ProductCard from '../ProductCard.astro';
 import type { Locale } from '../../lib/data';
 import { i18n, site, collections, getProducts } from '../../lib/data';
-import { homePath, catalogPath, contactPath, otherLocale, svgPath } from '../../lib/paths';
+import { homePath, catalogPath, contactPath, otherLocale } from '../../lib/paths';
+import { getProductImage } from '../../lib/photos';
 
 interface Props { locale: Locale; }
 const { locale } = Astro.props;
@@ -53,9 +55,25 @@ const orgSchema = JSON.stringify({
           </div>
         </div>
         <div class="hero-visual" aria-hidden="true">
-          {heroVisuals.map((p) => (
-            <div><img src={svgPath(p.id)} alt={p.data.name[locale]} loading="eager" width="600" height="600" /></div>
-          ))}
+          {heroVisuals.map((p) => {
+            const img = getProductImage(p.id);
+            return (
+              <div class={img.isPhoto ? '' : 'is-placeholder'}>
+                {img.isPhoto ? (
+                  <Image
+                    src={img.metadata}
+                    alt={p.data.name[locale]}
+                    widths={[300, 600]}
+                    sizes="(min-width: 900px) 270px, 50vw"
+                    loading="eager"
+                    format="webp"
+                  />
+                ) : (
+                  <img src={img.src} alt={p.data.name[locale]} loading="eager" width="600" height="600" />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -88,9 +106,21 @@ const orgSchema = JSON.stringify({
         <div class="collections-grid">
           {collections.map((c) => {
             const sample = products.find((p) => p.data.collection === c.id);
+            const img = sample ? getProductImage(sample.id) : null;
             return (
-              <a href={`${catalogPath(locale)}#collection-${c.id}`} class="collection-card">
-                <img src={sample ? svgPath(sample.id) : ''} alt={c.name[locale]} loading="lazy" width="600" height="600" />
+              <a href={`${catalogPath(locale)}#collection-${c.id}`} class={`collection-card${img && !img.isPhoto ? ' is-placeholder' : ''}`}>
+                {img?.isPhoto ? (
+                  <Image
+                    src={img.metadata}
+                    alt={c.name[locale]}
+                    widths={[300, 600]}
+                    sizes="(min-width: 1000px) 280px, (min-width: 500px) 33vw, 50vw"
+                    loading="lazy"
+                    format="webp"
+                  />
+                ) : (
+                  <img src={img?.src ?? ''} alt={c.name[locale]} loading="lazy" width="600" height="600" />
+                )}
                 <span class="label">{c.name[locale]}</span>
               </a>
             );

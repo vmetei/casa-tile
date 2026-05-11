@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
 import type { Locale, Product } from '../lib/data';
 import { i18n, getCollectionById, getColorById } from '../lib/data';
-import { productPath, svgPath } from '../lib/paths';
+import { productPath } from '../lib/paths';
+import { getProductImage } from '../lib/photos';
 
 interface Props {
   product: Product;
@@ -21,7 +23,7 @@ const stockBadgeClass = data.stock ? 'badge-success' : 'badge-danger';
 const stockLabel = data.stock ? t.catalog.inStock : t.catalog.outOfStock;
 const altImg = `${name} - ${collName}`;
 const href = productPath(locale, product.id);
-const img = svgPath(product.id);
+const image = getProductImage(product.id);
 ---
 
 <article
@@ -38,9 +40,29 @@ const img = svgPath(product.id);
   data-featured={String(data.featured)}
   data-order={order}
 >
-  <a href={href} class="img-wrap" aria-label={name}>
+  <a href={href} class={`img-wrap${image.isPhoto ? '' : ' is-placeholder'}`} aria-label={name}>
     <span class={`stock-tag badge ${stockBadgeClass}`}>{stockLabel}</span>
-    <img src={img} alt={altImg} loading="lazy" width="600" height="600" />
+    {!image.isPhoto && (
+      <span class="photo-missing-tag" title={t.common.photoUnavailableLong} aria-label={t.common.photoUnavailableLong}>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+          <line x1="1" y1="1" x2="23" y2="23"/>
+        </svg>
+        <span>{t.common.photoUnavailable}</span>
+      </span>
+    )}
+    {image.isPhoto ? (
+      <Image
+        src={image.metadata}
+        alt={altImg}
+        widths={[300, 600, 900]}
+        sizes="(min-width: 1000px) 280px, (min-width: 500px) 33vw, 50vw"
+        loading="lazy"
+        format="webp"
+      />
+    ) : (
+      <img src={image.src} alt={altImg} loading="lazy" width="600" height="600" />
+    )}
   </a>
   <div class="body">
     <span class="collection">{collName}</span>

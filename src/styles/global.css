@@ -545,6 +545,57 @@ section.tight { padding: 2.5rem 0; }
 }
 .form-success[data-shown="true"] { display: block; }
 
+/* "Photo unavailable" fallback — shown when no real JPG exists for a product.
+   The SVG pattern is dimmed and a clear badge tells the customer they're
+   looking at a placeholder, not the real material. */
+.img-wrap.is-placeholder img,
+.product-image-large.is-placeholder img,
+.collection-card.is-placeholder img,
+.hero-visual > div.is-placeholder img {
+  filter: grayscale(0.25) brightness(0.97);
+  opacity: 0.92;
+}
+.product-image-large.is-placeholder,
+.collection-card.is-placeholder {
+  position: relative;
+}
+.photo-missing-tag {
+  position: absolute;
+  top: 0.75rem; right: 0.75rem;
+  z-index: 2;
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 10px;
+  background: rgba(31, 29, 26, 0.82);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  pointer-events: auto;
+  max-width: calc(100% - 1.5rem);
+}
+.photo-missing-tag svg {
+  flex-shrink: 0;
+  width: 12px; height: 12px;
+}
+.photo-missing-tag span {
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.photo-missing-tag-lg {
+  top: 1rem; right: 1rem;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+}
+.photo-missing-tag-lg svg { width: 14px; height: 14px; }
+.collection-card.is-placeholder::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(31,29,26,0.04) 100%);
+  pointer-events: none;
+}
+
 /* Utilities */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .text-muted { color: var(--c-text-muted); }
