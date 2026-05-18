@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell(powershell -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\vasile\\\\source\\\\repos\\\\Website\\\\build.ps1\" 2>&1 | Select-Object -Last 10)",
-      "mcp__Claude_Preview__preview_start"
-    ]
-  }
-}

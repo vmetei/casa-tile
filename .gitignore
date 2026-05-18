@@ -13,6 +13,9 @@ yarn-error.log*
 .vscode/
 .idea/
 
+# Claude Code (local config, worktrees, permissions)
+.claude/
+
 # OS
 .DS_Store
 Thumbs.db
