@@ -45,3 +45,22 @@ export function getProductImage(slug: string): ProductImage {
 export function hasPhoto(slug: string): boolean {
   return Boolean(photosBySlug[slug.toLowerCase()]);
 }
+
+/**
+ * Map a product `size` string ("60x60", "30x60", "7.5x15", ...) to a CSS
+ * aspect-ratio expressed long-side-horizontal. Factory photos are uniformly
+ * 1500×750 landscape, so landscape orientation matches the source and minimizes
+ * cropping for rectangular tiles. Square tiles return "1 / 1".
+ *
+ * Used on the product detail page where conveying tile shape matters. Catalog
+ * cards intentionally stay 1:1 so the grid keeps a uniform rhythm.
+ */
+export function tileAspectRatio(size: string): string {
+  const parts = size.split('x').map((s) => parseFloat(s));
+  if (parts.length !== 2 || !parts.every((n) => Number.isFinite(n) && n > 0)) {
+    return '1 / 1';
+  }
+  const longSide = Math.max(parts[0], parts[1]);
+  const shortSide = Math.min(parts[0], parts[1]);
+  return `${longSide} / ${shortSide}`;
+}

@@ -25,8 +25,8 @@ You don't have to think about responsive image variants or cache busting — jus
 
 ## Recommended specs
 
-- **Aspect ratio:** square (1:1). Other ratios will be cropped to square by the card layout.
-- **Size:** 1600×1600 px or larger is ideal — the pipeline downscales as needed and you want headroom for retina displays. Don't worry about file size of the original; the build output will be optimized.
+- **Aspect ratio:** **2:1 landscape** (factory standard, e.g. 1500×750). The card layout derives each product's display ratio from its `size` field (60x60 → 1:1 square, 60x120 → 2:1 landscape, 30x60 → 2:1, 20x120 → 6:1, etc.) and crops the photo with `object-fit: cover`. A 2:1 source crops cleanly into any of these target ratios.
+- **Size:** **1500×750 px** is the factory standard and what the pipeline is sized for. Larger is fine — Astro downscales as needed. Smaller is not recommended (the product detail page requests up to ~1600 px wide variants for retina).
 - **Format:** JPG (factory standard). Astro converts to WebP at build time.
 - **Naming:** must match the product `id` exactly (lowercase, hyphens between words).
 

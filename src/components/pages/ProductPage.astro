@@ -8,7 +8,7 @@ import {
   getCollectionById, getRoomById, getFinishById, getMaterialById, getColorById,
 } from '../../lib/data';
 import { contactPath, homePath, catalogPath, productPath, otherLocale } from '../../lib/paths';
-import { getProductImage } from '../../lib/photos';
+import { getProductImage, tileAspectRatio } from '../../lib/photos';
 
 interface Props { locale: Locale; product: Product; }
 const { locale, product } = Astro.props;
@@ -46,6 +46,7 @@ const stockBadgeClass = data.stock ? 'badge-success' : 'badge-danger';
 const stockLabel = data.stock ? t.catalog.inStock : t.catalog.outOfStock;
 const price = String(Math.round(data.price));
 const image = getProductImage(product.id);
+const tileAspect = tileAspectRatio(data.size);
 // Resolve absolute URL for the schema's "image" field.
 // For a real photo, run it through the image pipeline so the schema points at
 // the optimized asset. For the SVG fallback, just use the raw path.
@@ -99,7 +100,7 @@ const productSchema = JSON.stringify({
       </nav>
 
       <div class="product-detail">
-        <div class={`product-image-large${image.isPhoto ? '' : ' is-placeholder'}`}>
+        <div class={`product-image-large${image.isPhoto ? '' : ' is-placeholder'}`} style={`--tile-aspect: ${tileAspect};`}>
           {!image.isPhoto && (
             <span class="photo-missing-tag photo-missing-tag-lg" title={t.common.photoUnavailableLong}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">

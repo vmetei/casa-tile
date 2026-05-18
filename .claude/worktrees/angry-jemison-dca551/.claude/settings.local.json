@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/vasile/source/repos/Website/**)",
+      "Bash(rm -rf dist node_modules/.astro)",
+      "Bash(npm run *)"
+    ]
+  }
+}
