@@ -1,4 +1,4 @@
-# Casa Tile
+# Promax Construct
 
 A bilingual (RO + RU) static product catalog for ceramic and floor tiles, built with [Astro](https://astro.build).
 
